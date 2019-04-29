@@ -52,6 +52,55 @@ filteredPokemon = () => {
     pokemon.name.includes(this.state.searchTerm))
 }
 
+////// FILTERS
+sortByNameDesc = () => {
+  this.setState({
+    pokemons: this.state.pokemons.sort((pokemonA, pokemonB) => {
+      return (pokemonA.name > pokemonB.name)
+      ? -1
+      : 1
+} ) } ) }
+
+sortByNameAsc = () => {
+  this.setState({
+    pokemons: this.state.pokemons.sort((pokemonA, pokemonB) => {
+      return (pokemonA.name < pokemonB.name)
+      ? -1
+      : 1
+} ) } ) }
+
+sortByHeightDesc = () => {
+  this.setState({
+    pokemons: this.state.pokemons.sort((pokemonA, pokemonB) => {
+      return (pokemonA.height > pokemonB.height)
+      ? -1
+      : 1
+} ) } ) }
+
+sortByHeightAsc = () => {
+  this.setState({
+    pokemons: this.state.pokemons.sort((pokemonA, pokemonB) => {
+      return (pokemonA.height < pokemonB.height)
+      ? -1
+      : 1
+} ) } ) }
+
+sortByWeightDesc = () => {
+  this.setState({
+    pokemons: this.state.pokemons.sort((pokemonA, pokemonB) => {
+      return (pokemonA.weight > pokemonB.weight)
+      ? -1
+      : 1
+} ) } ) }
+
+sortByWeightAsc = () => {
+  this.setState({
+    pokemons: this.state.pokemons.sort((pokemonA, pokemonB) => {
+      return (pokemonA.weight < pokemonB.weight)
+      ? -1
+      : 1
+} ) } ) }
+
 render() {
   return (
     <div>
@@ -74,6 +123,13 @@ render() {
       <PokemonCollection
         pokemons={this.filteredPokemon()}
         destroyPokemon={this.destroyPokemon}
+        
+        sortByNameDesc={this.sortByNameDesc}
+        sortByNameAsc={this.sortByNameAsc}
+        sortByWeightDesc={this.sortByWeightDesc}
+        sortByWeightAsc={this.sortByWeightAsc}
+        sortByHeightDesc={this.sortByHeightDesc}
+        sortByHeightAsc={this.sortByHeightAsc}
       />
 
     </div>
