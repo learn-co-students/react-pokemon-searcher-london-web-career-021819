@@ -19,7 +19,7 @@ render() {
 
         <div className="image">
           <img
-            alt="pokemon"
+            alt= {this.props.pokemon.name}
             src=
               {
               this.state.click

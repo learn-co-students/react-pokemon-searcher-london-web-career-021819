@@ -4,7 +4,11 @@ import { Form } from 'semantic-ui-react'
 export default class PokemonForm extends React.Component {
 
   state = {
+    height: '',
+    weight: '',
     name: '',
+    abilities: [],
+    moves: [],
     hp: '',
     frontUrl: '',
     backUrl: ''
@@ -17,6 +21,7 @@ formInputChange = event => {
 
 formInputSubmit = event => {
   event.preventDefault()
+  event.target.reset()
   this.props.createPokemon({
     name: this.state.name,
     stats: [{},{},{},{},{},{ value: this.state.hp }],
@@ -27,7 +32,6 @@ formInputSubmit = event => {
 render() {
   return (
     <div>
-      <h3> Add a Pokemon! </h3>
       <Form onSubmit={this.formInputSubmit} onChange={this.formInputChange}>
         <Form.Group widths="equal">
           <Form.Input fluid label="Name" placeholder="Name" name="name" />

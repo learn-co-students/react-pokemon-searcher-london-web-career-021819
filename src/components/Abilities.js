@@ -8,6 +8,7 @@ const Abilities = props => (
     <p>
       {props.pokemon.abilities}
     </p>
+    <br/>
   </div>
 )
 

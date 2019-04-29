@@ -8,8 +8,14 @@ export default class PokemonPage extends Component {
 
   state = {
     pokemons: [],
-    searchTerm: ""
+    searchTerm: "",
+    form: true
   }
+
+handleClick = () => {
+  this.setState({
+    form: !this.state.form})
+}
 
 /// FETCH POKEMON DATA
 componentDidMount(){
@@ -109,9 +115,19 @@ render() {
 
       <hr/>
 
-      <PokemonForm
-        createPokemon={this.createPokemon}
-      />
+      <div>
+        <button class="huge ui basic button" onClick={this.handleClick}>
+          <i class="icon user">
+          </i>
+          Add Pokemon
+        </button>
+        {
+        this.state.form
+        ? null
+        : <PokemonForm createPokemon={this.createPokemon} />
+        }
+
+      </div>
 
     <br/>
       <Search
@@ -123,7 +139,7 @@ render() {
       <PokemonCollection
         pokemons={this.filteredPokemon()}
         destroyPokemon={this.destroyPokemon}
-        
+
         sortByNameDesc={this.sortByNameDesc}
         sortByNameAsc={this.sortByNameAsc}
         sortByWeightDesc={this.sortByWeightDesc}
