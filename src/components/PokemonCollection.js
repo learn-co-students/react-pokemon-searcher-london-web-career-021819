@@ -14,6 +14,7 @@ class PokemonCollection extends React.Component {
       </Card.Group>
     )
   }
+  
 }
 
 export default PokemonCollection
