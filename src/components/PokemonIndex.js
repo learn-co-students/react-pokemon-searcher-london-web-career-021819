@@ -34,7 +34,6 @@ class PokemonPage extends React.Component {
       </div>
     )
   }
-  
   componentDidMount() {
     fetch('http://localhost:3000/pokemon')
     .then(response => response.json())
