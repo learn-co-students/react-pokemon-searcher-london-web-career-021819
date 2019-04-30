@@ -14,6 +14,7 @@ class PokemonPage extends React.Component {
     this.setState({
       searchTerm: searchTerm
     })
+    
   }
 
   filteredPokemon = () => {
