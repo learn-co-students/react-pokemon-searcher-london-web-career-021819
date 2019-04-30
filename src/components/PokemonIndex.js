@@ -30,7 +30,8 @@ class PokemonIndex extends React.Component {
     )
     return (
       <div>
-        <h1>Pokemon Searcher</h1>
+        <img src="https://fontmeme.com/permalink/190430/1e6bdb8a74099955b5b72d1eec249e82.png" alt=""/>
+        <img className="App-logo" src="https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807" alt=""/>
         <br />
         <Search onSearchChange={_.debounce(this.handleSearchChange, 500)} showNoResults={false} />
         <br />

@@ -16,7 +16,7 @@ class PokemonCard extends React.Component {
 
 
     return (
-      <Card >
+      <Card className="ui link cards">
         <div >
           <div className="image">
             <img src={this.state.isClicked ? this.props.pokemon.sprites.back : this.props.pokemon.sprites.front} alt="oh no!" onClick={this.handleClick}/>

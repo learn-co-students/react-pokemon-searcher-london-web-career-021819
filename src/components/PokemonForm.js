@@ -45,7 +45,7 @@ class PokemonForm extends React.Component {
   render() {
     return (
       <div>
-        <h3>Add a Pokemon!</h3>
+        <img src="https://fontmeme.com/permalink/190430/dd0c3a5c52d9ed3865fe74e8f3f7949d.png" alt=""/>
         <Form style={{margin: "10px"}} onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input fluid label="Name" placeholder="Name" name="name" value={this.state.name}
