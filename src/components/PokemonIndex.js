@@ -1,15 +1,16 @@
 import React from 'react'
+import _ from 'lodash'
+
 import PokemonCollection from './PokemonCollection'
 import PokemonForm from './PokemonForm'
 import { Search } from 'semantic-ui-react'
-import _ from 'lodash'
+import HPFilter from './HPFilter'
 
 class PokemonPage extends React.Component {
   state = {
     pokemon: [],
     searchTerm: '',
-    hpFilter: 0,
-    filterElValue: 0
+    hpFilter: 0
   }
 
   componentDidMount () {
@@ -23,17 +24,11 @@ class PokemonPage extends React.Component {
 
   handleSearchChange = (e, {value}) => { this.setState({searchTerm: value})}
 
-  handleFilterElChange = e => {this.setState({ filterElValue: e.target.value })}
-
-  handleMouseUp = e => {
-    this.setState({
-      hpFilter: e.target.value
-    })
-  }
+  handleFilterChange = e => {this.setState({ hpFilter: e.target.value })}
 
   addPokemon = (pokemon) => {
     this.setState({
-      pokemon: [...this.state.pokemon, pokemon]
+      pokemon: [pokemon, ...this.state.pokemon]
     });
   }
 
@@ -56,12 +51,9 @@ class PokemonPage extends React.Component {
         <br />
         <Search onSearchChange={_.debounce(this.handleSearchChange, 500)} showNoResults={false} />
         <br />
-        <label>Filter by hp: </label>
-        <input type='range' name='hp' min={minHp} max={maxHp} step='10' onMouseUp={this.handleMouseUp} onChange={this.handleFilterElChange}/>
-        {this.state.filterElValue !== 0 && `  ${this.state.filterElValue}`}
+        <HPFilter minHp={minHp} maxHp={maxHp} handleFilterChange={this.handleFilterChange} hpFilter={this.state.hpFilter}/>
         <br />
-        <br />
-        <PokemonCollection pokemon={filteredPokemon} mouseDown={this.state.mouseDown}/>
+        <PokemonCollection pokemon={filteredPokemon} />
         <br />
         <PokemonForm addPokemon={this.addPokemon} />
       </div>
