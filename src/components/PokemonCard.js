@@ -15,7 +15,7 @@ class PokemonCard extends React.Component {
       <Card>
         <div>
           <div className="image">
-            <img
+            <img width='50px'
               onClick={this.handleClick}
               src={
                 this.state.isClicked
@@ -31,7 +31,7 @@ class PokemonCard extends React.Component {
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              {this.props.pokemon.stats[5].value}hp
+              {this.props.pokemon.stats.find(stat => stat.name === 'hp').value}hp
             </span>
           </div>
         </div>
