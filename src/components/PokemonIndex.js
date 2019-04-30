@@ -40,6 +40,11 @@ export default class PokemonPage extends React.Component {
       .then(this.setState({pokemons: [...this.state.pokemons, pokemon]}))
   }
 
+  //bonus
+  sortByNameAsc = () => {
+
+  }
+
   render() {
     return (
       <div>
@@ -47,9 +52,9 @@ export default class PokemonPage extends React.Component {
         <br />
         <Search onSearchChange={event => this.onSearchChange(event.target.value)} showNoResults={false} />
         <br />
-        <PokemonCollection pokemons={this.filterPokemon()}/>
-        <br />
         <PokemonForm createPokemon={this.createPokemon}/>
+        <br />
+        <PokemonCollection pokemons={this.filterPokemon()}/>
       </div>
     )
   }

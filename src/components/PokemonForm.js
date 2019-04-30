@@ -22,10 +22,11 @@ class PokemonForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault()
     let name = this.state.name
-    let stats = [{},{},{},{},{},{ value: this.state.hp }]
+    let stats = [{},{},{},{},{},{ value: this.state.hp, name: "hp" }]
     let sprites = {front: this.state.frontUrl, back: this.state.backUrl}
     this.props.createPokemon({name, stats, sprites})
   }
+
 
 
   render() {
